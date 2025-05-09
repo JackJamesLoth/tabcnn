@@ -1,0 +1,10 @@
+_target_: src.data.tabCNNData.TabCNNData
+
+data_path: /homes/jjl01/GuitarTimbreTransferDiffusion/data/TabCNN_GuitarSet/
+batch_size: 128
+shuffle: True
+spec_repr: c
+con_win_size: 9
+val_split: 0.1
+test_split: 0.1
+num_workers: 6

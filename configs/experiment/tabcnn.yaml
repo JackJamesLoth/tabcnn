@@ -1,0 +1,38 @@
+# @package _global_
+
+defaults:
+  - override /data: tabCNNData_GOAT
+  - override /model: tabCNN
+  - override /callbacks: default
+  - override /trainer: default
+
+# all parameters below will be merged with parameters from default configurations set above
+# this allows you to overwrite only specified parameters
+
+log: False
+
+trainer:
+  min_epochs: 1
+  max_epochs: 32
+  accelerator: gpu
+  devices: 1
+  
+model_checkpoint:
+  every_n_epochs: 2
+
+model:
+  optimizer:
+    lr: .0001
+  spec_size: 128
+
+data:
+  batch_size: 128
+  spec_repr: m
+
+logger:
+  wandb:
+    tags: ${tags}
+    group: "tabCNN"
+    project: "TabCNN"
+  aim:
+    experiment: "tabCNN-train"
